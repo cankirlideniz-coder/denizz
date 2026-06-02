@@ -1,43 +1,56 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mijn Zee Pagina</title>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+      /* 🌊 Zee achtergrond */
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80") 
+      no-repeat center center/cover;
+    }
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    .box {
+      text-align: center;
+      padding: 40px 60px;
+      border-radius: 20px;
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+      /* glass effect */
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
 
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    p {
+      margin-top: 10px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>JOUW NAAM</h1>
+    <p>Welkom op mijn GitHub pagina 🌊</p>
+  </div>
+
+</body>
+</html>
